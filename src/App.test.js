@@ -1,5 +1,5 @@
 import React from "react";
-import App from "./App";
+import App from "./Answers";
 import { render, fireEvent, cleanup } from "@testing-library/react";
 
 import "@testing-library/jest-dom/extend-expect";
