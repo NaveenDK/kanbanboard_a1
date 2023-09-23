@@ -19,34 +19,6 @@ export default function KanbanBoard(props) {
     stagesTasks[stageId].push(task);
   }
 
-  //   function createTask() {
-  //     if (newTaskName.trim() !== "") {
-  //       const newTask = { name: newTaskName, stage: 0 };
-  //       setTasks([...tasks, newTask]);
-  //       setNewTaskName("");
-  //     }
-  //   }
-
-  //   function moveTask(task, direction) {
-  //     const updatedTasks = [...tasks];
-  //     const taskIndex = updatedTasks.indexOf(task);
-  //     const currentStage = updatedTasks[taskIndex].stage;
-  //     if (direction === "back" && currentStage > 0) {
-  //       updatedTasks[taskIndex].stage--;
-  //     } else if (
-  //       direction === "forward" &&
-  //       currentStage < stagesNames.length - 1
-  //     ) {
-  //       updatedTasks[taskIndex].stage++;
-  //     }
-  //     setTasks(updatedTasks);
-  //   }
-
-  //   function deleteTask(task) {
-  //     const updatedTasks = tasks.filter((t) => t !== task);
-  //     setTasks(updatedTasks);
-  //   }
-
   return (
     <div className="container mt-5">
       <div className="row">
@@ -58,12 +30,9 @@ export default function KanbanBoard(props) {
               className="form-control"
               placeholder="New task name"
               data-testid="create-task-input"
-              value={newTaskName}
-              onChange={(e) => setNewTaskName(e.target.value)}
             />
             <button
               type="submit"
-              onClick={createTask}
               className="btn btn-primary ml-2"
               data-testid="create-task-button"
             >
@@ -104,8 +73,6 @@ export default function KanbanBoard(props) {
                               data-testid={`${task.name
                                 .split(" ")
                                 .join("-")}-back`}
-                              onClick={() => moveTask(task, "back")}
-                              disabled={task.stage === 0}
                             >
                               <BsArrowLeft /> {/* Back Icon */}
                             </button>
@@ -114,8 +81,6 @@ export default function KanbanBoard(props) {
                               data-testid={`${task.name
                                 .split(" ")
                                 .join("-")}-forward`}
-                              onClick={() => moveTask(task, "forward")}
-                              disabled={task.stage === stagesNames.length - 1}
                             >
                               <BsArrowRight /> {/* Forward Icon */}
                             </button>
@@ -124,7 +89,6 @@ export default function KanbanBoard(props) {
                               data-testid={`${task.name
                                 .split(" ")
                                 .join("-")}-delete`}
-                              onClick={() => deleteTask(task)}
                             >
                               <BsTrash /> {/* Delete Icon */}
                             </button>
